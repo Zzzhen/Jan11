@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT, Jan11" />
+  <meta name="keywords" content="sticky, js/css" />
 
 
 
@@ -84,15 +84,21 @@
 
 
 
-<meta name="description" content="「Stay hungry. Stay foolish.」">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jan11">
-<meta property="og:url" content="http://zzzhen.github.io/index.html">
+<meta name="description" content="position:sticky 踩坑记录背景最近在移动端需要实现导航栏的粘性布局，看到原型的时候也就想了下怎么实现。不外乎是通过js监听window的scroll事件，当需要固定的元素滚动到窗口顶部时，把元素的position属性设置为fixed，否则，取消fixed，简单代码如下：
+var nav = document.querySelector(&apos;.navBar&apos;);function onSc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="position:sticky 踩坑记录">
+<meta property="og:url" content="http://zzzhen.github.io/2016/08/25/position-sticky-踩坑记录/index.html">
 <meta property="og:site_name" content="Jan11">
-<meta property="og:description" content="「Stay hungry. Stay foolish.」">
+<meta property="og:description" content="position:sticky 踩坑记录背景最近在移动端需要实现导航栏的粘性布局，看到原型的时候也就想了下怎么实现。不外乎是通过js监听window的scroll事件，当需要固定的元素滚动到窗口顶部时，把元素的position属性设置为fixed，否则，取消fixed，简单代码如下：
+var nav = document.querySelector(&apos;.navBar&apos;);function onSc">
+<meta property="og:image" content="http://7xi6j3.com1.z0.glb.clouddn.com/Can%20I%20use%20sticky-.png">
+<meta property="og:updated_time" content="2016-08-29T05:31:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jan11">
-<meta name="twitter:description" content="「Stay hungry. Stay foolish.」">
+<meta name="twitter:title" content="position:sticky 踩坑记录">
+<meta name="twitter:description" content="position:sticky 踩坑记录背景最近在移动端需要实现导航栏的粘性布局，看到原型的时候也就想了下怎么实现。不外乎是通过js监听window的scroll事件，当需要固定的元素滚动到窗口顶部时，把元素的position属性设置为fixed，否则，取消fixed，简单代码如下：
+var nav = document.querySelector(&apos;.navBar&apos;);function onSc">
+<meta name="twitter:image" content="http://7xi6j3.com1.z0.glb.clouddn.com/Can%20I%20use%20sticky-.png">
 
 
 
@@ -113,7 +119,7 @@
 
 
 
-  <title> Jan11 </title>
+  <title> position:sticky 踩坑记录 | Jan11 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -144,9 +150,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -223,9 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -245,10 +249,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/25/position-sticky-踩坑记录/" itemprop="url">
-                  position:sticky 踩坑记录
-                </a>
+                position:sticky 踩坑记录
               
             
           </h1>
@@ -295,9 +296,7 @@
       
 
       
-        
-          
-            <h1 id="position-sticky-踩坑记录"><a href="#position-sticky-踩坑记录" class="headerlink" title="position:sticky 踩坑记录"></a>position:sticky 踩坑记录</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在移动端需要实现导航栏的粘性布局，看到原型的时候也就想了下怎么实现。不外乎是通过js监听window的scroll事件，当需要固定的元素滚动到窗口顶部时，把元素的position属性设置为fixed，否则，取消fixed，简单代码如下：</p>
+        <h1 id="position-sticky-踩坑记录"><a href="#position-sticky-踩坑记录" class="headerlink" title="position:sticky 踩坑记录"></a>position:sticky 踩坑记录</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在移动端需要实现导航栏的粘性布局，看到原型的时候也就想了下怎么实现。不外乎是通过js监听window的scroll事件，当需要固定的元素滚动到窗口顶部时，把元素的position属性设置为fixed，否则，取消fixed，简单代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.navBar'</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onScroll</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">	<span class="built_in">window</span>.scrollY &gt;= nav.offsetTop ? nav.classList.add(<span class="string">'fixed'</span>) : nav.classList.remove(<span class="string">'fixed'</span>); </div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, onScroll);</div></pre></td></tr></table></figure>
 <p>开发的时候一直在用Chrome的模拟器，滑动起来很顺畅，后来测试的时候用真机发现粘顶效果很不好。ios滑动的时候会暂停所有的js执行，等待滚动完成之后才会执行，所以上面代码的监听并没有在滑动时响应。安卓机下面相对好一点。但是作为一个水果机，竟然有如此不优雅的展现方式，怎么对得起乔帮主的在天之灵啊！</p>
 <p>既然浏览器自带滚动条不适用，就尝试用类似iscroll插件模拟滚动条，但是考量了一下，滚动页面需要上拉加载更多，需要对整页进行iscroll，损耗性能不说还要重新实现iscroll（或者引入插件）。所以准备使用position的新属性 Sticky。</p>
@@ -314,180 +313,61 @@
 </ul>
 <p>参考：<br><a href="https://drafts.csswg.org/css-position-3/#sticky-pos" target="_blank" rel="external">CSS Positioned Layout Module Level 3</a><br><a href="https://www.sitepoint.com/css-position-sticky-introduction-polyfills/" target="_blank" rel="external">CSS “position: sticky” – Introduction and Polyfills</a></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/16/移动端虚拟键盘与fixed/" itemprop="url">
-                  移动端虚拟键盘与fixed
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-16T13:47:55+08:00" content="2015-03-16">
-              2015-03-16
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/移动端/" rel="tag">#移动端</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/16/移动端虚拟键盘与fixed/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/16/移动端虚拟键盘与fixed/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/CSS3/" rel="tag">#CSS3</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>#前言<br>前段日子，运营一哥们跟我说，我们之前上线的xx商城，移动端在部分苹果手机上打字的时候会出现很诡异的事情。我研究了几天，觉得需要贴出来备忘一下。</p>
-<hr>
-<p>#问题描述<br>当出现虚拟键盘时，文本（类）框获得焦点时，原来的fixed就失去效果了。移动端有一个footer是用fixed定位的。下图标红的部分：<br><img src="http://7xi6j3.com1.z0.glb.clouddn.com/xiaoye.jpg?imageView/2/w/320/q/90" alt="免税店"><br>但是如果弹出虚拟键盘就会失去效果，原图我现在没有，就在网上照了一张，大家凑合着看：<br><img src="http://7xi6j3.com1.z0.glb.clouddn.com/fixed&amp;keyboard.jpg?imageView/2/w/320/q/90" alt="弹出虚拟键盘"></p>
-<p>#解决之路<br>本来我以为所有手机都会出现这种问题，但是经过多方排查，只有<strong>ios系统7.2的版本</strong>会出现这个问题。其他android和ios其他版本均不会出现。之后查了些资料，最后还是解决了问题。&lt;鼓掌&gt;虽然有点geek。</p>
-<p>在移动设备上，如果文本框在上方，点击不会有什么问题；在设备的最下面的话，就有所不同了，整个块会上移，以将input区域显示出来；<br>首先以下有些问题是我不可处理的：</p>
-<ol>
-<li>虚拟键盘的出现对页面来说是不可知的，没有键盘出现事件，没有办法获取键盘高度</li>
-<li>键盘是浮在了viewport上，表面上不会对dom产生“任何”影响，但是这个时候一些定位元素的表现却变得诡异</li>
-</ol>
-<p>一般大公司的处理方法是：<strong>移动端不采用fixed属性</strong>。在设计环节就杜绝问题的出现。但是这显然不适合我们，产品都已经上线了啊。<br>然后我起初的构思是从根源着手，深入研究两个知识点：</p>
-<ol>
-<li>viewport的原理</li>
-<li>ios虚拟键盘的原理</li>
-</ol>
-<p>就我手里现有资源和时间来说，都不能完成，所以只能先从应用层面解决问题。<br>应用层面解决方案<br>我们想到这么一个场景，如果我们能监控到键盘的行为，如果能的话，我们便可以<br>1.键盘弹出时候将fixed元素设置为static2.键盘消失时候将fixed元素设置为fixed</p>
-<p>这个方案好恶心啊，我当时想到的时候也被这个方案吓了一跳，但是或许这是现阶段最好的解决方案了。<br>我的做法就是：监控dom变化！<br>监控键盘<br>监控的方式其实筛选下来也不过两种：</p>
-<ul>
-<li>时钟setInterval不停监控</li>
-<li>系统级别的监控，比如键盘出现时候通知window一个事件，但是很遗憾现在还没有这个事件，但是这个事件等于<br>input类元素获取焦点 == 弹出虚拟键盘input类元素失去焦点 == 收起虚拟键盘</li>
-</ul>
-<p>但是我们前面已经说过，上面的原则不一定可靠，所以该种方案也未必可靠了<br>基于系统监控这点，我们还可以监控resize事件或者scroll事件，但是经过我的测试，setInterval表现比较好<br>于是，我们简单写一段代码，可靠是否满足需求：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.alert = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123; </div><div class="line">  $(<span class="string">'body'</span>).append(<span class="string">'&lt;div&gt;'</span> + msg + <span class="string">'&lt;/div&gt;'</span>)</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fixedWatch</span>(<span class="params">el</span>) </span>&#123; </div><div class="line">  <span class="keyword">if</span>(<span class="built_in">document</span>.activeElement.nodeName == <span class="string">'INPUT'</span>)&#123; </div><div class="line">    el.css(<span class="string">'position'</span>, <span class="string">'static'</span>); </div><div class="line">  &#125; <span class="keyword">else</span> &#123; </div><div class="line">    el.css(<span class="string">'position'</span>, <span class="string">'fixed'</span>); </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">  fixedWatch($(<span class="string">'#headerview header'</span>));</div><div class="line">&#125;, <span class="number">500</span>);</div></pre></td></tr></table></figure>
-<p>这个问题似乎被我们修复了，但这个方案有一个致命的恶心点！<strong>不停的监控dom变化，浪费资源。</strong><br>后来我又优化了一下，只有获取焦点的时候才加个定时器，代码感觉好很多了。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">  $(<span class="string">'#dl_app img'</span>).hide();</div><div class="line">&#125;, <span class="number">100</span>);</div><div class="line"><span class="built_in">window</span>.alert = <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</div><div class="line"> $(<span class="string">'body'</span>).append(<span class="string">'&lt;div&gt;'</span> + msg + <span class="string">'&lt;/div&gt;'</span>)</div><div class="line">&#125;;</div><div class="line"><span class="built_in">window</span>.res = <span class="literal">null</span>;</div><div class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fixedWatch</span>(<span class="params">el</span>) </span>&#123; </div><div class="line">  alert(i++); </div><div class="line">  <span class="keyword">if</span>(<span class="built_in">document</span>.activeElement.nodeName == <span class="string">'INPUT'</span>)&#123; </div><div class="line">    el.css(<span class="string">'position'</span>, <span class="string">'static'</span>); </div><div class="line">  &#125; <span class="keyword">else</span> &#123; </div><div class="line">    el.css(<span class="string">'position'</span>, <span class="string">'fixed'</span>); </div><div class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.res ) &#123; </div><div class="line">      clearInterval(<span class="built_in">window</span>.res ); </div><div class="line">      <span class="built_in">window</span>.res = <span class="literal">null</span>; </div><div class="line">    &#125; </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">$(<span class="string">'input'</span>).focus(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">  <span class="keyword">if</span>(!<span class="built_in">window</span>.res) &#123; </div><div class="line">    fixedWatch($(<span class="string">'#headerview header'</span>)); </div><div class="line">    <span class="built_in">window</span>.res = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </div><div class="line">      fixedWatch($(<span class="string">'#headerview header'</span>)); </div><div class="line">    &#125;, <span class="number">500</span>); </div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>#结束<br>移动端开发毕竟是个新兴行业，规范和方法都不是很健全，在这个时代，我们每一个人都是开拓者。用各式各样的方法去解决处理问题，提升自己。谨写下这个问题，愿与君共勉。<br>「Stay Hungry . Stay Foolish.」</p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/16/移动端虚拟键盘与fixed/" rel="next" title="移动端虚拟键盘与fixed">
+                <i class="fa fa-chevron-left"></i> 移动端虚拟键盘与fixed
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -495,6 +375,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/25/position-sticky-踩坑记录/"
+           data-title="position:sticky 踩坑记录" data-url="http://zzzhen.github.io/2016/08/25/position-sticky-踩坑记录/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -514,8 +402,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://o79c3cyiv.bkt.clouddn.com/Jan11.jpg"
@@ -603,6 +500,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#position-sticky-踩坑记录"><span class="nav-number">1.</span> <span class="nav-text">position:sticky 踩坑记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -706,6 +614,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
